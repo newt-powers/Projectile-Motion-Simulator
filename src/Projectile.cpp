@@ -3,8 +3,10 @@ using namespace std;
 
 /**The initial height of the projectile, which is always 0 meters above the ground.*/
 #define initialHeight 0.0
+/**The initial horizontal position of the projectile, which is always 0 meters from the point of launch.*/
+#define initialHorizontalPosition 0.0
 /**The gravitational acceleration due to Earth, which is always 9.81 m/s^2.*/
-#define gravity -9.81
+#define g -9.81
 
 /**
  * The projectile launched in the projectile motion simulator.
@@ -43,9 +45,45 @@ class Projectile {
             initialSpeed = initSpeed;
             angle = ang;
             mass = mas;
+            assertInv();
         }
 
-        //function declarations
+        //Create three methods for the outputs for access in Main.cpp when displaying results
+        /**
+         * Return the horizontal distance the projectile traveled before hitting the ground.
+        */
+        double distance() {
+            return distance;
+        }
+
+        /**
+         * Return the time taken during projectile motion.
+        */
+        double time() {
+            return time;
+        }
+
+        /**
+         * Return the highest point of the projectile.
+        */
+        double apex() {
+            return apex;
+        }
+
+        /**
+         * Calculate the projectile properties.
+        */
+        int main() {
+            //horizontal motion
+            //v0x = vx
+            //use y = y0 + v0y(t) - (1/2)g(t^2) to find t where t is not 0
+            //then, use x = x0 + vx(t) to find x, the total horizontal distance
+            //vy = 0 at apex
+            //now, use vy^2 = v0y^2 - 2g(y-y0) to find the apex, y
+            return 0;
+        }
+
+        //Create three helper methhods for the horizontal and vertical components of the speed and the total time, distance, and apex
+
 };
 
-//proceding functions relating to the projectile properties
