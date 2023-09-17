@@ -37,15 +37,34 @@ class Projectile {
          * Return the horizontal component of the 'initialSpeed'.
         */
         double x() {
-            return initialSpeed * cos(angle);
+            return initialSpeed * cos((2*acos(0.0))*(1/180.0)*angle);
         }
 
         /**
          * Return the vertical component of the 'initialSpeed'.
         */
         double y() {
-            return initialSpeed * sin(angle);
+            return initialSpeed * sin((2*acos(0.0))*(1/180.0)*angle);
         }
+
+        /**
+         * Calculate the properties of the projectile motion including distance, time, and apex.
+        */
+       void calculateProperties() {
+            //horizontal motion, v0x = vx
+            /**The initial horizontal speed.*/
+            double initXSpeed = x();
+            /**The inital vertical speed.*/
+            double initYSpeed = y();
+            //use y = y0 + v0y(t) - (1/2)g(t^2) to find t where t is not 0
+            //t = 0, t = v0y*2/g
+            time = (initYSpeed * 2)/g;
+            //then, use x = x0 + vx(t) to find x, the total horizontal distance
+            distance = initialHorizontalPosition + initXSpeed * time;
+            //now, use vy^2 = v0y^2 - 2g(y-y0) to find the apex, y
+            //vy = 0 at apex
+            apex = (pow(initYSpeed, 2))/(2*g) + initialHeight;
+       }
 
     public:
         /**
@@ -56,6 +75,7 @@ class Projectile {
             //assign global variables given inputs
             initialSpeed = initSpeed;
             angle = ang;
+            calculateProperties();
             assertInv();
         }
 
