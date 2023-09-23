@@ -1,10 +1,11 @@
+#include <iostream>
 //for numerical computations
 #include <math.h>
 #include <cmath>
 #include <numbers>
-#include "src/Projectile.cpp"
+#include "../src/Projectile.cpp"
 //for unit testing
-#include <googletest/googletest/include/gtest/gtest.h>
+#include "../googletest/googletest/include/gtest/gtest.h"
 using namespace std;
 
 /**The gravitational acceleration due to Earth, which is always 9.81 m/s^2.*/
